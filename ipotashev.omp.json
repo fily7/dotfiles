@@ -1,0 +1,79 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#ddccbb",
+          "properties": {
+            "root_icon": "sudo"
+          },
+          "style": "plain",
+          "template": "\u276a\uf0e7\u276b ",
+          "type": "root"
+        },
+        {
+          "foreground": "#88aa22",
+          "style": "plain",
+          "template": "{{ .UserName }} @ ",
+          "type": "session"
+        },
+        {
+          "foreground": "#87ceeb",
+          "properties": {
+            "home_icon": "~",
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#ddccbb",
+          "style": "plain",
+          "template": "\u2771",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#bbaa99",
+          "properties": {
+            "always_enabled": true,
+            "style": "austin"
+          },
+          "style": "powerline",
+          "template": " [ {{ .FormattedMs }} ] ",
+          "type": "executiontime"
+        },
+        {
+          "foreground": "#e8ae5b",
+          "style": "plain",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
+        {
+          "foreground": "#d3d7cf",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#cd5c5c{{else}}#86af80{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": " [{{ if gt .Code 0 }}\u2717{{ else }}\u2713{{ end }}]",
+          "type": "exit"
+        }
+      ],
+      "type": "rprompt"
+    }
+  ],
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "final_space": true,
+  "version": 2
+}
